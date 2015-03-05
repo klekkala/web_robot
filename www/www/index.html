@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pi Robot</title>
+
+    <link href="/css/bootstrap.css" rel="stylesheet">
+
+    <style>
+      .thin.container {
+        max-width:700px;
+      }
+    </style>
+    
+    <script src="/js/jquery.js"></script>
+    <script src="/js/jquery.form.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() { 
+            $('#move').ajaxForm(); 
+        }); 
+    </script>
+
+  </head>
+
+  <body>
+    <div class="container thin">
+      <div class="page-header">
+      <h1>Pi Robot</h1>
+    </div>
+
+    <div class="container thin">
+      <p><img src="http://172.17.173.170:8080/?action=stream"/></p>
+      <form id="move" action="/action" method="get">
+        <div class="input-group">
+          <span class="input-group-addon">Seconds to move for</span>
+          <input type="text" name="seconds" class="form-control" value="2">
+        </div>
+        <p></p>
+        <div class="btn-group">
+          <button type="submit" name="direction" value="Forwards" class="btn btn-default">Forwards</button>
+          <button type="submit" name="direction" value="Backwards" class="btn btn-default">Backwards</button>
+          <button type="submit" name="direction" value="Left" class="btn btn-default">Left</button>
+          <button type="submit" name="direction" value="Right" class="btn btn-default">Right</button>
+          <button type="submit" name="direction" value="Stop" class="btn btn-default">Stop</button>
+        </div>
+      </div>
+    </form>
+
+  </body>
+</html>
